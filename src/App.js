@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import List from "./components/List";
-import search from "./components/Search";
+import Search from "./components/Search";
 
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
       <hr className="separator"/>
       {sortedTodos.map((todo) => {
         return (
-          <List removeTodo={removeTodo} completeTodo={completeTodo} priority todo={todo} key={todo.id}/>
+          <List removeTodo={removeTodo} completeTodo={completeTodo}  todo={todo} key={todo.id}/>
         )
       })}
     </div>

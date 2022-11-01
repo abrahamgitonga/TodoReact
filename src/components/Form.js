@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 
 export default function TodoForm(props) {
   const [input, setInput] = useState("");
-  const [input_search, setSearch] = useState("")
+  // const [input_search, setSearch] = useState("")
 
   // priority useRef
   const priorityUseRef = new useRef()
