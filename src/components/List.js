@@ -9,7 +9,7 @@ export default function TodoItem(props) {
         <div className={todo.completed ? "todo-row complete" : "todo-row"}>
             {todo.text}
             <div className="iconsContainer">
-                <p className='important'>{priority}</p>
+                <p className='important'>{todo.priority}</p>
                 <AiFillEdit onClick={() =>editTodo(todo.id)}/>
                 <RiCloseCircleLine style={{ marginRight: 5 }} onClick={() => removeTodo(todo.id)}/>
                 <BiCheckCircle onClick={() => completeTodo(todo.id)}/>

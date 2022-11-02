@@ -7,6 +7,7 @@ import Search from "./components/Search";
 
 function App() {
   const [todos, setTodos] = useState([]);
+ 
 
   const addTodo = (text, priority) => {
     let id = 1;
@@ -27,6 +28,15 @@ function App() {
     setTodos(updatedTodos);
   };
 
+  const editTodo = (id) => {
+    setTodos((todos) =>
+      todos.map((todo) =>
+        todo.key === id.key ? { ...todo, title: todo.text } : todo
+      )
+    );
+};
+
+
   const completeTodo = (id) => {
     let updatedTodos = todos.map((todo) => {
       if(todo.id === id) {
@@ -44,11 +54,14 @@ function App() {
       <h1>Todo App</h1>
       <Form addTodo={addTodo} />
       <hr className="separator"/>
+      <div className="todo-container">
       {sortedTodos.map((todo) => {
         return (
-          <List removeTodo={removeTodo} completeTodo={completeTodo}  todo={todo} key={todo.id}/>
+          <List removeTodo={removeTodo} completeTodo={completeTodo} editTodo={editTodo}  todo={todo} key={todo.id}/>
         )
       })}
+      </div>
+     
     </div>
   );
   

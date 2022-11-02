@@ -11,19 +11,15 @@ export default function TodoForm(props) {
   const handleSubmit = (e) => {
     // console.log(e)
     e.preventDefault()
+    if (!input) alert("You need to type something!")
     props.addTodo(input,priorityUseRef.current.value)
 
     setInput("")
   } 
 
-  // const search = (e)=> {
-  //   e.preventDefault()
-  //   props.searchTodo(input_search)
-  //   setSearch("")
+ 
 
-  // }
-
-  return (
+  return( 
     <form onSubmit={handleSubmit} className="form_todo">
       
       
@@ -34,9 +30,9 @@ export default function TodoForm(props) {
         placeholder="Add task"
       />
       <select ref={priorityUseRef} name="priority" id="priority">
-        <option value="high">High</option>
-        <option value="medium">Medium</option>
-        <option value="low">Low</option>
+        <option id="high-priority" value="high">High</option>
+        <option id="medium-priority" value="medium">Medium</option>
+        <option id="low-priority" value="low">Low</option>
       </select>
       <button type="submit" className="button_todo">Add</button>
     </form>
