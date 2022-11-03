@@ -19,15 +19,16 @@ body {
   overflow: hidden;
 }
 .todo-app {
-  margin: 10px;
+  margin: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  /* justify-content: center; */
+  margin-bottom: 50px;
   width: 45%;
   height: 600px;
   
   text-align: center;
-  margin: 128px auto;
+  margin: 20px auto;
   border-radius: 10px;
   padding-bottom: 32px;
   background: linear-gradient(
@@ -54,7 +55,7 @@ body {
 }
 
 h1 {
-  margin: 32px 0;
+  margin: 20px 0;
   font-size: 33px;
 }
 
@@ -73,7 +74,7 @@ h1 {
   border-radius: 4px 0 0 4px;
   border: 2px solid rgb(10, 15, 22);
   outline: none;
-  width: 320px;
+  width: 250px;
 }
 
 .button_todo {
@@ -105,24 +106,47 @@ h1 {
   justify-content: space-between;
   align-items: center;
   margin: 4px auto;
-  color: rgb(241, 233, 233);
-  background: linear-gradient(
-    65deg,
-    rgba(17, 122, 255, 1) 0%,
-    rgb(6, 20, 29) 100%
-  );
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: azure;
+  border: 1px solid blue;
+  border-radius: 10px;
   padding: 16px;
   border-radius: 5px;
   width: 90%;
-  
-  
+}
+
+.todo-row#high{
+  border: 2px solid red;
+  border-right: 12px solid red;
+}
+.todo-row#medium{
+  border: 2px solid gold;
+  border-right: 12px solid gold;
+}
+.todo-row#low{
+  border: 2px solid green;
+  border-right: 12px solid green;
 }
 
 .iconsContainer {
+  width: 30%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   font-size: 24px;
   cursor: pointer;
+}
+.top{
+  /* border: 2px solid black; */
+  /* width: 100%; */
+  /* justify-content:flex-start; */
+}
+
+.bottom{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .separator {
@@ -151,17 +175,4 @@ h1 {
   font-size: 20px;
   text-align: center;
 }
-#high-priority {
-  color: red;
-
-}
-#medium-priority{
-  color: green;
-  
-}
-#low-priority{
-  color: blue;
-  
-}
-
 

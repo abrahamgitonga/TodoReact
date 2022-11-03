@@ -2,19 +2,31 @@ import React, { useState, useRef } from "react";
 
 
 export default function TodoForm(props) {
-  const [input, setInput] = useState("");
+  // const [input, setInput] = useState("");
   // const [input_search, setSearch] = useState("")
 
   // priority useRef
   const priorityUseRef = new useRef()
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     // console.log(e)
-    e.preventDefault()
-    if (!input) alert("You need to type something!")
-    props.addTodo(input,priorityUseRef.current.value)
+    if (props.selectedTodo.id) {
+      let updatedTodos = props.todos.map((todo) => {
+        if (todo.id === props.selectedTodo.id) {
+          return { ...todo, text: props.input }
+        } else {
+          return todo
+        }
+      })
+      props.setTodos(updatedTodos);
+      props.setInput('')
+    } else {
+      if (!props.input) alert("You need to type something!")
+      props.addTodo(props.input,priorityUseRef.current.value)
 
-    setInput("")
+      props.setInput('')
+    }
   } 
 
  
@@ -24,8 +36,9 @@ export default function TodoForm(props) {
       
       
       <input
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+        value={props.input}
+        onChange={props.handleChange}
+        // onChange={(e) => setInput(e.target.value)}
         className="input_todo"
         placeholder="Add task"
       />
